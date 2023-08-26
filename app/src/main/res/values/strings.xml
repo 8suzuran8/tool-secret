@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">tool-secret</string>
+    <string name="secret_key">secret_key</string>
+</resources>
