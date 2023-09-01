@@ -5,7 +5,9 @@
 
 ## change app name
 tool-secret/app/src/main/res/values/strings.xml
+
 <string name="app_name">tool-secret</string>
+
 change "tool-secret" to your app name
 
 ## change icon
