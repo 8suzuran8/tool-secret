@@ -3,6 +3,13 @@
 |---|---|---|
 |comming soon|comming soon|comming soon|
 
+## change secret key
+tool-secret/app/src/main/res/values/strings.xml
+
+<string name="secret_key">0123456789ABCDEF</string>
+
+change "0123456789ABCDEF" to your password
+
 ## change app name
 tool-secret/app/src/main/res/values/strings.xml
 
