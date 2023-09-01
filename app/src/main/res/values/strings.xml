@@ -1,10 +1,7 @@
 <resources>
     <string name="app_name">tool-secret</string>
     <string name="secret_key">0123456789ABCDEF</string>
-    <string name="main_background">main background</string>
     <string name="search_text">please input search text</string>
-    <string name="to_decrypt">to decrypt</string>
-    <string name="to_ecrypt">to ecrypt</string>
     <string name="arrow_right">→</string>
     <string name="arrow_left">←</string>
 </resources>
