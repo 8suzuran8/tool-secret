@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingLeft="50dp"
+    android:paddingTop="25dp"
+    android:paddingRight="50dp"
+    android:paddingBottom="50dp"
+    tools:context=".ui.main.MainFragment">
+
+    <EditText
+        android:id="@+id/search"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginBottom="25dp"
+        android:background="@color/white"
+        android:hint="@string/search_text"
+        android:inputType="text"
+        android:textColor="@color/black"
+        tools:ignore="Autofill,LabelFor,VisualLintTextFieldSize" />
+
+    <TextView
+        android:id="@+id/editTextTextMultiLine"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="@color/white"
+        android:gravity="top"
+        android:isScrollContainer="true"
+        android:scrollbars="horizontal|vertical"
+        android:textColor="@color/black" />
+
+</LinearLayout>
