@@ -92,8 +92,11 @@ class MainActivity : AppCompatActivity(), TextWatcher {
             return
         } else {
             val result = this.cipherInfo["decryptText"]!!.replace(p0.toString().lowercase(), "<span style='background-color:#00FF88;'>" + p0.toString() + "</span>", ignoreCase = true)
-
             this.tooSecretViewPager.adapter!!.fragments[0]!!.updateText(0, result)
+
+            val index = this.cipherInfo["decryptText"]!!.indexOf(p0.toString().lowercase(), 0, true)
+            findViewById<EditText>(R.id.editTextTextMultiLine).setSelection(index)
+
             return
         }
     }
