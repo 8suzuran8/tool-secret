@@ -8,7 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
-import android.widget.TextView
 import com.example.tool_secret.R
 
 class MainFragment(private val cipherInfo: MutableMap<String, String>) : Fragment() {
@@ -54,7 +53,9 @@ class MainFragment(private val cipherInfo: MutableMap<String, String>) : Fragmen
                 }
             }
             else -> {
-                layout.findViewById<TextView>(R.id.editTextTextMultiLine).text = Html.fromHtml(that.cipherInfo["decryptText"], Html.FROM_HTML_MODE_LEGACY)
+                layout.findViewById<EditText>(R.id.editTextTextMultiLine).apply {
+                    setText(Html.fromHtml(that.cipherInfo["decryptText"], Html.FROM_HTML_MODE_LEGACY))
+                }
             }
         }
 
@@ -72,7 +73,7 @@ class MainFragment(private val cipherInfo: MutableMap<String, String>) : Fragmen
     fun updateText(position: Int, text: String): Boolean {
         when (position) {
             0 -> {
-                requireView().findViewById<TextView>(R.id.editTextTextMultiLine).text = Html.fromHtml(text.replace("[\\r?\\n]".toRegex(), "<br>"), Html.FROM_HTML_MODE_LEGACY)
+                requireView().findViewById<EditText>(R.id.editTextTextMultiLine).setText(Html.fromHtml(text.replace("[\\r?\\n]".toRegex(), "<br>"), Html.FROM_HTML_MODE_LEGACY))
             }
             1 -> {
                 requireView().findViewById<EditText>(R.id.editTextTextMultiLineDecrypt).setText(text)

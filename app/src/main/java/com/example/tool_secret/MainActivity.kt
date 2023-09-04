@@ -4,11 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.text.method.ScrollingMovementMethod
 import android.util.Base64
 import android.view.View
 import android.widget.EditText
-import android.widget.TextView
 import androidx.viewpager2.widget.ViewPager2
 import java.nio.charset.StandardCharsets
 import javax.crypto.Cipher
@@ -82,7 +80,6 @@ class MainActivity : AppCompatActivity(), TextWatcher {
 
         if (!executedOnWindowFocusChanged) {
             findViewById<EditText>(R.id.search).addTextChangedListener(this)
-            findViewById<TextView>(R.id.editTextTextMultiLine).movementMethod = ScrollingMovementMethod.getInstance()
             this.executedOnWindowFocusChanged = true
         }
     }
@@ -94,7 +91,7 @@ class MainActivity : AppCompatActivity(), TextWatcher {
             this.tooSecretViewPager.adapter!!.fragments[0]!!.updateText(0, this.cipherInfo["decryptText"]!!)
             return
         } else {
-            val result = this.cipherInfo["decryptText"]!!.replace(p0.toString(), "<span style='background-color:#00FF88;'>" + p0.toString() + "</span>")
+            val result = this.cipherInfo["decryptText"]!!.replace(p0.toString().lowercase(), "<span style='background-color:#00FF88;'>" + p0.toString() + "</span>", ignoreCase = true)
 
             this.tooSecretViewPager.adapter!!.fragments[0]!!.updateText(0, result)
             return

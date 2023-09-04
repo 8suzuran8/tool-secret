@@ -24,15 +24,14 @@
         android:textColor="@color/black"
         tools:ignore="Autofill,LabelFor,VisualLintTextFieldSize" />
 
-    <TextView
+    <EditText
         android:id="@+id/editTextTextMultiLine"
+        android:inputType="textMultiLine"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:background="@color/white"
         android:gravity="top"
-        android:isScrollContainer="true"
-        android:scrollbars="horizontal|vertical"
         android:textColor="@color/black"
         android:textIsSelectable="true"
         tools:ignore="SpeakableTextPresentCheck,VisualLintTextFieldSize"
