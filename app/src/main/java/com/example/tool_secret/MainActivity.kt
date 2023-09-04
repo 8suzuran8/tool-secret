@@ -19,6 +19,8 @@ class MainActivity : AppCompatActivity(), TextWatcher {
     private lateinit var viewPager: ViewPager2
     private lateinit var tooSecretViewPager: ToolSecretViewPager
 
+    private var executedOnWindowFocusChanged = false
+
     private val cipherInfo: MutableMap<String, String> = mutableMapOf(
         "encryptText" to "",
         "decryptText" to "",
@@ -78,8 +80,11 @@ class MainActivity : AppCompatActivity(), TextWatcher {
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
 
-        findViewById<EditText>(R.id.search).addTextChangedListener(this)
-        findViewById<TextView>(R.id.editTextTextMultiLine).movementMethod = ScrollingMovementMethod.getInstance()
+        if (!executedOnWindowFocusChanged) {
+            findViewById<EditText>(R.id.search).addTextChangedListener(this)
+            findViewById<TextView>(R.id.editTextTextMultiLine).movementMethod = ScrollingMovementMethod.getInstance()
+            this.executedOnWindowFocusChanged = true
+        }
     }
 
     override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}

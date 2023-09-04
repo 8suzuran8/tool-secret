@@ -33,6 +33,9 @@
         android:gravity="top"
         android:isScrollContainer="true"
         android:scrollbars="horizontal|vertical"
-        android:textColor="@color/black" />
+        android:textColor="@color/black"
+        android:textIsSelectable="true"
+        tools:ignore="SpeakableTextPresentCheck,VisualLintTextFieldSize"
+        android:importantForAutofill="no" />
 
 </LinearLayout>
