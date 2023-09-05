@@ -2,5 +2,4 @@
 <bitmap
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:src="@drawable/background_image"
-    android:alpha="0.3"
     android:tileMode="repeat" />

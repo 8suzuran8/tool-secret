@@ -1,12 +1,18 @@
 package com.example.tool_secret
 
+import android.animation.ObjectAnimator
+import android.animation.PropertyValuesHolder
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Base64
 import android.view.View
+import android.view.animation.LinearInterpolator
 import android.widget.EditText
+import android.widget.FrameLayout
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.updateLayoutParams
 import androidx.viewpager2.widget.ViewPager2
 import java.nio.charset.StandardCharsets
 import javax.crypto.Cipher
@@ -79,6 +85,25 @@ class MainActivity : AppCompatActivity(), TextWatcher {
         super.onWindowFocusChanged(hasFocus)
 
         if (!executedOnWindowFocusChanged) {
+            val windowHeight = findViewById<FrameLayout>(R.id.container).height
+            val background = findViewById<ConstraintLayout>(R.id.background).apply {
+                updateLayoutParams {
+                    translationY = -windowHeight.toFloat()
+                    height = windowHeight * 2
+                }
+            }
+
+            ObjectAnimator.ofPropertyValuesHolder(
+                background,
+                PropertyValuesHolder.ofFloat("translationY", 0F)
+            ).apply {
+                duration = 10000
+                repeatMode = ObjectAnimator.RESTART
+                repeatCount = -1
+                interpolator = LinearInterpolator()
+                start()
+            }
+
             findViewById<EditText>(R.id.search).addTextChangedListener(this)
             this.executedOnWindowFocusChanged = true
         }
@@ -91,7 +116,7 @@ class MainActivity : AppCompatActivity(), TextWatcher {
             this.tooSecretViewPager.adapter!!.fragments[0]!!.updateText(0, this.cipherInfo["decryptText"]!!)
             return
         } else {
-            val result = this.cipherInfo["decryptText"]!!.replace(p0.toString().lowercase(), "<span style='background-color:#00FF88;'>" + p0.toString() + "</span>", ignoreCase = true)
+            val result = this.cipherInfo["decryptText"]!!.replace(p0.toString().lowercase(), "<span style='background-color:#534D2E;'>" + p0.toString() + "</span>", ignoreCase = true)
             this.tooSecretViewPager.adapter!!.fragments[0]!!.updateText(0, result)
 
             val index = this.cipherInfo["decryptText"]!!.indexOf(p0.toString().lowercase(), 0, true)

@@ -4,7 +4,6 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
     android:gravity="center"
     android:orientation="vertical"
     android:paddingLeft="50dp"
@@ -18,10 +17,11 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginBottom="25dp"
-        android:background="@color/white"
+        android:padding="10dp"
+        android:background="@color/edit_text"
         android:hint="@string/search_text"
         android:inputType="text"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         tools:ignore="Autofill,LabelFor,VisualLintTextFieldSize" />
 
     <EditText
@@ -30,9 +30,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:background="@color/white"
+        android:padding="10dp"
+        android:background="@color/edit_text"
         android:gravity="top"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textIsSelectable="true"
         tools:ignore="SpeakableTextPresentCheck,VisualLintTextFieldSize"
         android:importantForAutofill="no" />
