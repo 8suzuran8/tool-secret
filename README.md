@@ -1,9 +1,19 @@
+## about
+This is an app that just encrypts strings.
+Manage your account in any format you want.
+Therefore, it is possible to have multiple accounts for one service.
+
+We were also particular about the design.
+It is difficult for people around you to spy on you.
+
+Manage your encrypted strings in your favorite cloud.
+Conversely, be careful not to become complacent before putting it in the cloud.
+
 ## screen shot
 |1|2|3|
 |---|---|---|
 |Text data search screen before encryption|Text data display screen before encryption|Text data display screen after encryption|
-|![Screenshot_20230901-104533](https://github.com/8suzuran8/tool-secret/assets/95464364/84a9cf5f-4fdb-4c49-8d43-7b55c4e8a829)|![Screenshot_20230901-104542](https://github.com/8suzuran8/tool-secret/assets/95464364/2b75e0a0-ed4b-4298-9b55-4bdc3cc8cb42)|![Screenshot_20230901-104553](https://github.com/8suzuran8/tool-secret/assets/95464364/4d4d1483-3928-46b4-a8e8-d81f340f38b5)
-|
+|![Screenshot_20230905-150918](https://github.com/8suzuran8/tool-secret/assets/95464364/9bda216c-212f-4284-acf2-86fb5dc169a6)|![Screenshot_20230905-150928](https://github.com/8suzuran8/tool-secret/assets/95464364/7e624f9f-e323-48b8-a6af-b0fbbf73c7e9)|![Screenshot_20230905-150934](https://github.com/8suzuran8/tool-secret/assets/95464364/d086c451-2978-4ccd-a9b2-1678fb0d9de6)|
 
 ## Howto
 
