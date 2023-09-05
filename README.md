@@ -9,6 +9,9 @@ It is difficult for people around you to spy on you.
 Manage your encrypted strings in your favorite cloud.
 Conversely, be careful not to become complacent before putting it in the cloud.
 
+This app does not save any data on your smartphone or within the app.
+The security level is therefore that of the cloud you use.
+
 ## screen shot
 |1|2|3|
 |---|---|---|
