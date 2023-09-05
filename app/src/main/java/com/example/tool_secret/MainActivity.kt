@@ -120,7 +120,9 @@ class MainActivity : AppCompatActivity(), TextWatcher {
             this.tooSecretViewPager.adapter!!.fragments[0]!!.updateText(0, result)
 
             val index = this.cipherInfo["decryptText"]!!.indexOf(p0.toString().lowercase(), 0, true)
-            findViewById<EditText>(R.id.editTextTextMultiLine).setSelection(index)
+            if (index >= 0) {
+                findViewById<EditText>(R.id.editTextTextMultiLine).setSelection(index)
+            }
 
             return
         }
