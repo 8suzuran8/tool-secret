@@ -73,7 +73,7 @@ class MainFragment(private val cipherInfo: MutableMap<String, String>) : Fragmen
     fun updateText(position: Int, text: String): Boolean {
         when (position) {
             0 -> {
-                requireView().findViewById<EditText>(R.id.editTextTextMultiLine).setText(Html.fromHtml(text.replace("[\\r?\\n]".toRegex(), "<br>"), Html.FROM_HTML_MODE_LEGACY))
+                requireView().findViewById<EditText>(R.id.editTextTextMultiLine).setText(Html.fromHtml(text.replace("[\\r?\\n]".toRegex(), "<br>").replace(" ", "&#8200;"), Html.FROM_HTML_MODE_LEGACY))
             }
             1 -> {
                 requireView().findViewById<EditText>(R.id.editTextTextMultiLineDecrypt).setText(text)
