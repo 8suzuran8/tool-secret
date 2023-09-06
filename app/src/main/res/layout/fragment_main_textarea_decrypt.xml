@@ -71,5 +71,6 @@
         android:gravity="top"
         android:inputType="textMultiLine"
         android:textColor="@color/white"
+        android:typeface="monospace"
         tools:ignore="Autofill,LabelFor,SpeakableTextPresentCheck,VisualLintTextFieldSize" />
 </LinearLayout>

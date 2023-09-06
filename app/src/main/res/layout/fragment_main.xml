@@ -35,6 +35,7 @@
         android:gravity="top"
         android:textColor="@color/white"
         android:textIsSelectable="true"
+        android:typeface="monospace"
         tools:ignore="SpeakableTextPresentCheck,VisualLintTextFieldSize"
         android:importantForAutofill="no" />
 
