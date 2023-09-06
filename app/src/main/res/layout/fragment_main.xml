@@ -24,19 +24,23 @@
         android:textColor="@color/white"
         tools:ignore="Autofill,LabelFor,VisualLintTextFieldSize" />
 
-    <EditText
-        android:id="@+id/editTextTextMultiLine"
-        android:inputType="textMultiLine"
+    <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:padding="10dp"
         android:background="@color/edit_text"
-        android:gravity="top"
-        android:textColor="@color/white"
-        android:textIsSelectable="true"
-        android:typeface="monospace"
-        tools:ignore="SpeakableTextPresentCheck,VisualLintTextFieldSize"
-        android:importantForAutofill="no" />
+        android:padding="10dp">
+
+        <EditText
+            android:id="@+id/editTextTextMultiLine"
+            android:inputType="textMultiLine"
+            android:layout_width="1000dp"
+            android:layout_height="match_parent"
+            android:gravity="top"
+            android:textColor="@color/white"
+            android:textIsSelectable="true"
+            android:typeface="monospace"
+            tools:ignore="SpeakableTextPresentCheck,VisualLintTextFieldSize"
+            android:importantForAutofill="no" />
+    </HorizontalScrollView>
 
 </LinearLayout>

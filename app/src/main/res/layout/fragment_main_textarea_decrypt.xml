@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_textarea_plane"
+    android:id="@+id/main_textarea_decrypt"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
@@ -60,17 +60,21 @@
 
     </FrameLayout>
 
-    <EditText
-        android:id="@+id/editTextTextMultiLineDecrypt"
+    <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
         android:layout_weight="1"
-        android:padding="10dp"
         android:background="@color/edit_text"
-        android:gravity="top"
-        android:inputType="textMultiLine"
-        android:textColor="@color/white"
-        android:typeface="monospace"
-        tools:ignore="Autofill,LabelFor,SpeakableTextPresentCheck,VisualLintTextFieldSize" />
+        android:padding="10dp">
+        <EditText
+            android:id="@+id/editTextTextMultiLineDecrypt"
+            android:layout_width="wrap_content"
+            android:minWidth="1000dp"
+            android:layout_height="match_parent"
+            android:gravity="top"
+            android:inputType="textMultiLine"
+            android:textColor="@color/white"
+            android:typeface="monospace"
+            tools:ignore="Autofill,LabelFor,SpeakableTextPresentCheck,VisualLintTextFieldSize" />
+    </HorizontalScrollView>
 </LinearLayout>
