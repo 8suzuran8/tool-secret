@@ -65,7 +65,9 @@ class MainActivity : AppCompatActivity(), TextWatcher {
                 this.cipherInfo["encryptText"] = this.tooSecretViewPager.adapter!!.fragments[2]!!.getPositionText(2)
                 this.cipherInfo["decryptText"] = this.toDecrypt(keyText, this.cipherInfo["encryptText"]!!)
 
-                this.tooSecretViewPager.adapter!!.fragments[0]!!.updateText(0, this.cipherInfo["decryptText"]!!.replace(" ", "&#8200;"))
+                this.tooSecretViewPager.adapter!!.fragments[0]!!.updateText(0, this.cipherInfo["decryptText"]!!.
+                replace(" ", "&#8200;").
+                replace("?", "&#63;"))
                 this.tooSecretViewPager.adapter!!.fragments[1]!!.updateText(1, this.cipherInfo["decryptText"]!!)
             }
             R.id.imageButtonToEncrypt -> {
@@ -73,7 +75,9 @@ class MainActivity : AppCompatActivity(), TextWatcher {
                 this.cipherInfo["decryptText"] = this.tooSecretViewPager.adapter!!.fragments[1]!!.getPositionText(1)
                 this.cipherInfo["encryptText"] = this.toEncrypt(keyText, this.cipherInfo["decryptText"]!!)
 
-                this.tooSecretViewPager.adapter!!.fragments[0]!!.updateText(0, this.cipherInfo["decryptText"]!!.replace(" ", "&#8200;"))
+                this.tooSecretViewPager.adapter!!.fragments[0]!!.updateText(0, this.cipherInfo["decryptText"]!!.
+                replace(" ", "&#8200;").
+                replace("?", "&#63;"))
                 this.tooSecretViewPager.adapter!!.fragments[2]!!.updateText(2, this.cipherInfo["encryptText"]!!)
             }
         }
@@ -113,10 +117,27 @@ class MainActivity : AppCompatActivity(), TextWatcher {
 
     override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
         if (p3 == 0) {
-            this.tooSecretViewPager.adapter!!.fragments[0]!!.updateText(0, this.cipherInfo["decryptText"]!!.replace(" ", "&#8200;"))
+            this.tooSecretViewPager.adapter!!.fragments[0]!!.updateText(0,
+                "<tt>" +
+                        this.cipherInfo["decryptText"]!!.
+                        replace(" ", "&#8200;").
+                        replace("?", "&#63;") +
+                        "</tt>"
+            )
             return
         } else {
-            val result = this.cipherInfo["decryptText"]!!.replace(" ", "&#8200;").replace(p0.toString().replace(" ", "&#8200;").lowercase(), "<span style='background-color:#534D2E;'>" + p0.toString().replace(" ", "&#8200;") + "</span>", ignoreCase = true)
+            val result = "<tt>" + this.cipherInfo["decryptText"]!!.
+                replace(" ", "&#8200;").
+                replace("?", "&#63;").
+                replace(
+                    p0.toString().replace(" ", "&#8200;").lowercase(),
+                    "<span style='background-color:#534D2E;'>" +
+                            p0.toString().
+                            replace(" ", "&#8200;").
+                            replace("?", "&#63;") +
+                            "</span>",
+                    ignoreCase = true
+                ) + "</tt>"
             this.tooSecretViewPager.adapter!!.fragments[0]!!.updateText(0, result)
 
             val index = this.cipherInfo["decryptText"]!!.indexOf(p0.toString().lowercase(), 0, true)
