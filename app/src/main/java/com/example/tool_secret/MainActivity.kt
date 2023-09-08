@@ -9,6 +9,7 @@ import android.text.TextWatcher
 import android.util.Base64
 import android.view.View
 import android.view.animation.LinearInterpolator
+import android.widget.Button
 import android.widget.EditText
 import android.widget.FrameLayout
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -28,14 +29,19 @@ class MainActivity : AppCompatActivity(), TextWatcher {
     private val cipherInfo: MutableMap<String, String> = mutableMapOf(
         "encryptText" to "",
         "decryptText" to "",
+        "windowWidth" to "",
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val windowMetrics = this.windowManager.currentWindowMetrics
+        this.cipherInfo["windowWidth"] = windowMetrics.bounds.width().toString()
+
         this.tooSecretViewPager = ToolSecretViewPager(this, this.cipherInfo)
         this.viewPager = this.tooSecretViewPager.viewPager
+        this.viewPager.isUserInputEnabled = false
     }
 
     private fun toEncrypt(keyText: String, decryptText: String): String {
@@ -106,6 +112,14 @@ class MainActivity : AppCompatActivity(), TextWatcher {
                 repeatCount = -1
                 interpolator = LinearInterpolator()
                 start()
+            }
+
+            findViewById<Button>(R.id.view_pager_prev).setOnClickListener {
+                if (this.viewPager.currentItem > 0) this.viewPager.currentItem -= 1
+            }
+
+            findViewById<Button>(R.id.view_pager_next).setOnClickListener {
+                if (this.viewPager.currentItem < this.viewPager.adapter!!.itemCount) this.viewPager.currentItem += 1
             }
 
             findViewById<EditText>(R.id.search).addTextChangedListener(this)

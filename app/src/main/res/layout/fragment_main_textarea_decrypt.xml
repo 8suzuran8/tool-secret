@@ -15,18 +15,20 @@
     <FrameLayout
         android:id="@+id/buttonContainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="25dp"
-        android:layout_weight="8">
+        android:layout_height="50dp"
+        android:minHeight="50dp"
+        android:layout_marginBottom="25dp">
 
         <Button
             android:id="@+id/imageButtonToEncrypt"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginLeft="75dp"
+            android:layout_marginRight="75dp"
             android:onClick="buttonClickListener"
             android:text="@string/arrow_left"
             android:translationZ="1dp"
-            android:background="@drawable/button"
+            android:background="@drawable/crypt_button"
             android:textColor="@color/black"
             tools:ignore="VisualLintButtonSize,VisualLintOverlap" />
 
@@ -34,9 +36,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:paddingLeft="45dp"
+            android:paddingLeft="100dp"
             android:paddingTop="10dp"
-            android:paddingRight="45dp"
+            android:paddingRight="100dp"
             android:paddingBottom="10dp"
             android:translationZ="10dp">
 
@@ -62,14 +64,13 @@
 
     <HorizontalScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:layout_weight="1"
         android:background="@color/edit_text"
         android:padding="10dp">
         <EditText
             android:id="@+id/editTextTextMultiLineDecrypt"
             android:layout_width="wrap_content"
-            android:minWidth="1000dp"
             android:layout_height="match_parent"
             android:gravity="top"
             android:inputType="textMultiLine"

@@ -11,8 +11,36 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/background"/>
+
+    <LinearLayout
+        android:id="@+id/controller_container"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp">
+
+        <Button
+            android:id="@+id/view_pager_prev"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/page_button"
+            android:hint="@string/prev_page"
+            android:text="@string/arrow_left" />
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"/>
+        <Button
+            android:id="@+id/view_pager_next"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/page_button"
+            android:hint="@string/next_page"
+            android:text="@string/arrow_right" />
+    </LinearLayout>
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/view_pager2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></androidx.viewpager2.widget.ViewPager2>
+        android:layout_height="match_parent"><!-- fragment --></androidx.viewpager2.widget.ViewPager2>
 </FrameLayout>

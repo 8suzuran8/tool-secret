@@ -40,6 +40,12 @@ class MainFragment(private val cipherInfo: MutableMap<String, String>) : Fragmen
             }
         }
 
+        if (pageIndex == 0) {
+            layout.findViewById<EditText>(R.id.editTextTextMultiLine).minWidth = cipherInfo["windowWidth"]!!.toInt()
+        } else if (pageIndex == 1) {
+            layout.findViewById<EditText>(R.id.editTextTextMultiLineDecrypt).minWidth = cipherInfo["windowWidth"]!!.toInt()
+        }
+
         val that = this
         when (pageIndex) {
             1 -> {
