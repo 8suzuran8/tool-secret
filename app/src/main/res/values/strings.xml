@@ -4,4 +4,6 @@
     <string name="search_text">please input search text</string>
     <string name="arrow_right">→</string>
     <string name="arrow_left">←</string>
+    <string name="prev_page">previous page</string>
+    <string name="next_page">next page</string>
 </resources>
