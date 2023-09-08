@@ -64,6 +64,8 @@ tool-secret/app/src/main/res/mipmap-xxhdpi/ic_launcher.???
 
 tool-secret/app/src/main/res/mipmap-xxxhdpi/ic_launcher.???
 
+## ignore updates with git
+git update-index --assume-unchanged app/src/main/res/values/strings.xml
 
 
 tool-secret/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.???
