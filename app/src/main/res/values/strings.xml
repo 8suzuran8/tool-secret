@@ -6,6 +6,8 @@
     <string name="arrow_right">→</string>
     <string name="arrow_down">↓</string>
     <string name="arrow_left">←</string>
+    <string name="sort_asc">Sort in ascending order</string>
     <string name="prev_page">previous page</string>
+    <string name="sort_desc">Sort in descending order</string>
     <string name="next_page">next page</string>
 </resources>
