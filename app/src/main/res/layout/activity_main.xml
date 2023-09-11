@@ -13,7 +13,7 @@
         android:background="@drawable/background"/>
 
     <LinearLayout
-        android:id="@+id/controller_container"
+        android:id="@+id/controller_container_top"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="25dp"
@@ -25,6 +25,8 @@
             android:layout_width="50dp"
             android:layout_height="match_parent"
             android:background="@drawable/page_button"
+            android:onClick="buttonClickListener"
+            android:alpha="0.25"
             android:hint="@string/prev_page"
             android:text="@string/arrow_left" />
         <View
@@ -36,11 +38,50 @@
             android:layout_width="50dp"
             android:layout_height="match_parent"
             android:background="@drawable/page_button"
+            android:onClick="buttonClickListener"
             android:hint="@string/next_page"
             android:text="@string/arrow_right" />
     </LinearLayout>
+
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/view_pager2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"><!-- fragment --></androidx.viewpager2.widget.ViewPager2>
+        android:layout_height="match_parent"
+        android:paddingBottom="50dp"><!-- fragment --></androidx.viewpager2.widget.ViewPager2>
+
+    <LinearLayout
+        android:id="@+id/controller_container_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="-75dp"
+        android:layout_marginRight="50dp"
+        android:gravity="bottom"
+        tools:ignore="VisualLintBounds">
+
+        <Button
+            android:id="@+id/sort_asc"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/page_button"
+            android:onClick="buttonClickListener"
+            android:alpha="0.25"
+            android:hint="@string/sort_asc"
+            android:text="@string/arrow_down" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/sort_desc"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/page_button"
+            android:onClick="buttonClickListener"
+            android:alpha="0.25"
+            android:hint="@string/sort_desc"
+            android:text="@string/arrow_top" />
+    </LinearLayout>
 </FrameLayout>
