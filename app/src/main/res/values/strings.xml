@@ -2,7 +2,9 @@
     <string name="app_name">tool-secret</string>
     <string name="secret_key">0123456789ABCDEF</string>
     <string name="search_text">please input search text</string>
+    <string name="arrow_top">↑</string>
     <string name="arrow_right">→</string>
+    <string name="arrow_down">↓</string>
     <string name="arrow_left">←</string>
     <string name="prev_page">previous page</string>
     <string name="next_page">next page</string>
