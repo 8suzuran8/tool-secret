@@ -12,6 +12,7 @@ import android.view.animation.LinearInterpolator
 import android.widget.Button
 import android.widget.EditText
 import android.widget.FrameLayout
+import android.widget.LinearLayout
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.updateLayoutParams
 import androidx.viewpager2.widget.ViewPager2
@@ -86,6 +87,64 @@ class MainActivity : AppCompatActivity(), TextWatcher {
                 replace("?", "&#63;"))
                 this.tooSecretViewPager.adapter!!.fragments[2]!!.updateText(2, this.cipherInfo["encryptText"]!!)
             }
+
+            R.id.view_pager_prev -> {
+                if (this.viewPager.currentItem > 0) {
+                    this.viewPager.currentItem -= 1
+                }
+
+                if (this.viewPager.currentItem == 0) {
+                    findViewById<Button>(R.id.view_pager_prev).alpha = 0.25F
+                } else {
+                    findViewById<Button>(R.id.view_pager_prev).alpha = 1F
+                }
+                findViewById<Button>(R.id.view_pager_next).alpha = 1F
+
+                if (this.viewPager.currentItem != 1) {
+                    findViewById<Button>(R.id.sort_asc).alpha = 0.25F
+                    findViewById<Button>(R.id.sort_desc).alpha = 0.25F
+                } else {
+                    findViewById<Button>(R.id.sort_asc).alpha = 1F
+                    findViewById<Button>(R.id.sort_desc).alpha = 1F
+                }
+            }
+
+            R.id.view_pager_next -> {
+                if (this.viewPager.currentItem < this.viewPager.adapter!!.itemCount) {
+                    this.viewPager.currentItem += 1
+                }
+
+                if (this.viewPager.currentItem == this.viewPager.adapter!!.itemCount - 1) {
+                    findViewById<Button>(R.id.view_pager_next).alpha = 0.25F
+                } else {
+                    findViewById<Button>(R.id.view_pager_next).alpha = 1F
+                }
+                findViewById<Button>(R.id.view_pager_prev).alpha = 1F
+
+                if (this.viewPager.currentItem != 1) {
+                    findViewById<Button>(R.id.sort_asc).alpha = 0.25F
+                    findViewById<Button>(R.id.sort_desc).alpha = 0.25F
+                } else {
+                    findViewById<Button>(R.id.sort_asc).alpha = 1F
+                    findViewById<Button>(R.id.sort_desc).alpha = 1F
+                }
+            }
+            R.id.sort_asc -> {
+                if (this.viewPager.currentItem == 1) {
+                    val sortedText =
+                        this.tooSecretViewPager.adapter!!.fragments[1]!!.getPositionText(1)
+                            .split("\r?\n".toRegex()).sorted().joinToString("\n")
+                    this.tooSecretViewPager.adapter!!.fragments[1]!!.updateText(1, sortedText)
+                }
+            }
+            R.id.sort_desc -> {
+                if (this.viewPager.currentItem == 1) {
+                    val sortedText =
+                        this.tooSecretViewPager.adapter!!.fragments[1]!!.getPositionText(1)
+                            .split("\r?\n".toRegex()).sorted().reversed().joinToString("\n")
+                    this.tooSecretViewPager.adapter!!.fragments[1]!!.updateText(1, sortedText)
+                }
+            }
         }
 
         return
@@ -103,6 +162,8 @@ class MainActivity : AppCompatActivity(), TextWatcher {
                 }
             }
 
+            findViewById<LinearLayout>(R.id.controller_container_bottom).translationY = windowHeight.toFloat()
+
             ObjectAnimator.ofPropertyValuesHolder(
                 background,
                 PropertyValuesHolder.ofFloat("translationY", 0F)
@@ -114,15 +175,8 @@ class MainActivity : AppCompatActivity(), TextWatcher {
                 start()
             }
 
-            findViewById<Button>(R.id.view_pager_prev).setOnClickListener {
-                if (this.viewPager.currentItem > 0) this.viewPager.currentItem -= 1
-            }
-
-            findViewById<Button>(R.id.view_pager_next).setOnClickListener {
-                if (this.viewPager.currentItem < this.viewPager.adapter!!.itemCount) this.viewPager.currentItem += 1
-            }
-
             findViewById<EditText>(R.id.search).addTextChangedListener(this)
+
             this.executedOnWindowFocusChanged = true
         }
     }
@@ -145,7 +199,7 @@ class MainActivity : AppCompatActivity(), TextWatcher {
                 replace("?", "&#63;").
                 replace(
                     p0.toString().replace(" ", "&#8200;").lowercase(),
-                    "<span style='background-color:#534D2E;'>" +
+                    "<span style='background-color:#000000;'>" +
                             p0.toString().
                             replace(" ", "&#8200;").
                             replace("?", "&#63;") +
